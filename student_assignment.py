@@ -23,13 +23,10 @@ def hw02_2(q2_pdf):
     loader = PyPDFLoader(q2_pdf)
     documents = loader.load()
 
-    full_text = "\n".join(doc.page_content for doc in documents)
+    full_text = "-".join(doc.page_content for doc in documents)
 
     recursive_text_splitter = RecursiveCharacterTextSplitter(
-        separators=[
-            r"\n.*第.*章.*?\n",
-            r"第.*(?:\d+-\d+|\d+).*條.*\n"
-        ],
+        separators=[r"第.+(?:條 *|章 .*)(?:\n|-)"],
         is_separator_regex=True,
         chunk_size = 10,
         chunk_overlap = 0,
