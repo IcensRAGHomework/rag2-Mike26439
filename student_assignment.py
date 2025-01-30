@@ -26,9 +26,9 @@ def hw02_2(q2_pdf):
     full_text = "\n".join(doc.page_content for doc in documents)
 
     recursive_text_splitter = RecursiveCharacterTextSplitter(
-        separators=[r"\n.*第.{0,}章.{0,}?\n",  # 第x章
-            r"第.{0,}\d{1,}.{0,}條.{0,}\n",  # 第 x 條
-            r"第.{0,}\d{1,}-\d{1,}.{0,}條.{0,}\n"  # 第 x-x 條
+        separators=[r"\n.*第.*章.*?\n",  # 第x章
+            r"第.*\d+.*條.*\n",  # 第 x 條
+            r"第.*\d+-\d+.*條.*\n"  # 第 x-x 條
         ],
         is_separator_regex=True,
         chunk_size = 10,
