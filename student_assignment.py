@@ -37,4 +37,4 @@ def hw02_2(q2_pdf):
     split_documents = recursive_text_splitter.split_text(full_text)
     return len(split_documents)
 
-print(hw02_2(q2_pdf))
+#print(hw02_2(q2_pdf))
